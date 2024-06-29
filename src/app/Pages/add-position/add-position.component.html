@@ -1,0 +1,51 @@
+<section
+  class="container flex flex-col gap-5 justify-center items-center my-0 mx-auto"
+>
+  <div>
+    <form class="flex flex-col w-[300px]">
+      <mat-label class="mb-3 text-xl font-bold">Position Details</mat-label>
+      <mat-form-field>
+        <mat-label>Enter Position Name</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter Position Description</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Choose start date</mat-label>
+        <input matInput [matDatepicker]="picker" />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Choose end date</mat-label>
+        <input matInput [matDatepicker]="picker1" />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker1"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <div class="flex">
+        <button
+          mat-raised-button
+          class="save mt-4 w-[70%] mx-auto"
+          (click)="onSave()"
+        >
+          Save
+        </button>
+        <button
+          mat-raised-button
+          class="cancel mt-4 w-[70%] mx-auto"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

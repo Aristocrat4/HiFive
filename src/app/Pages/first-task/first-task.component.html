@@ -1,1 +1,44 @@
-<p>first-task works!</p>
+<section
+  class="container flex flex-col gap-5 justify-center items-center my-0 mx-auto"
+>
+  <button mat-raised-button class="addjob" (click)="onAddJob()">
+    Add a Job
+  </button>
+  <ng-container *ngIf="companies.length; else empty">
+    <div *ngFor="let company of companies">
+      <mat-card class="example-card px-4 pb-4 w-[500px]" appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>{{ company.companyName }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Company Website: {{ company.companyWebsite }}</p>
+          <p>Company Description: {{ company.companyDescription }}</p>
+        </mat-card-content>
+        <button
+          mat-raised-button
+          class="addjob mt-4 w-[70%] mx-auto"
+          (click)="onAddPosition()"
+        >
+          Add a Position
+        </button>
+        <mat-card-footer class="example-card-footer mt-5">
+          <h2>Positions</h2>
+          <div *ngFor="let position of company.positions">
+            <mat-card class="position-card bg-red-200">
+              <mat-card-header>
+                <mat-card-title>{{ position.positionName }}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>Level: {{ position.positionLevel }}</p>
+                <p>Description: {{ position.positionDescription }}</p>
+                <p>Start Date: {{ position.startDate }}</p>
+                <p>End Date: {{ position.endDate }}</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </ng-container>
+  <ng-template #empty>No job found for this user</ng-template>
+</section>

@@ -1,0 +1,37 @@
+<section
+  class="container flex flex-col gap-5 justify-center items-center my-0 mx-auto"
+>
+  <div>
+    <form [formGroup]="jobForm" class="flex flex-col w-[300px]">
+      <mat-label class="mb-3 text-xl font-bold">Company Details</mat-label>
+      <mat-form-field>
+        <mat-label>Enter Company Name</mat-label>
+        <input matInput formControlName="companyName" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter Company Website</mat-label>
+        <input matInput formControlName="companyWebsite" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter Company Description</mat-label>
+        <textarea matInput formControlName="companyDescription"></textarea>
+      </mat-form-field>
+      <div class="flex">
+        <button
+          mat-raised-button
+          class="save mt-4 w-[70%] mx-auto"
+          (click)="onSave()"
+        >
+          Save
+        </button>
+        <button
+          mat-raised-button
+          class="cancel mt-4 w-[70%] mx-auto"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
