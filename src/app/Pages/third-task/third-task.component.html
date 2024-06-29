@@ -1,1 +1,7 @@
-<p>third-task works!</p>
+<section class="container flex flex-col gap-5 justify-center my-0 mx-auto">
+  <p>Example to copy and paste down below: 2023-08-10T09:42:34.0734574Z</p>
+  <mat-form-field class="example-full-width">
+    <input placeholder="ჩაწერეთ თარიღი" matInput [(ngModel)]="text" />
+  </mat-form-field>
+  {{ text | dateFormat }}
+</section>
