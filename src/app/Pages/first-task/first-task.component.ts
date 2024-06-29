@@ -10,11 +10,11 @@ export interface Company {
   companyName: string;
   companyWebsite: string;
   companyDescription: string;
-  positions: Position[] | [];
+  positions: Position[];
 }
 export interface Position {
   positionName: string;
-  positionLevel: 'Junior' | 'Middle' | 'Senior';
+  positionLevel?: 'Junior' | 'Middle' | 'Senior';
   positionDescription: string;
   startDate: string;
   endDate: string;
@@ -50,7 +50,17 @@ export class FirstTaskComponent {
     this.jobService.jobForm.reset();
     this.route.navigate([`add-job`]);
   }
-  onAddPosition() {
-    this.route.navigate([`add-position/1`]);
+  onAddPosition(index: number) {
+    this.route.navigate([`add-position/${index}`]);
+  }
+  onRemoveJob(index: number) {
+    this.jobService.jobs.splice(index, 1);
+  }
+  onRemovePosition(i: number, j: number) {
+    this.jobService.jobs.forEach((job, index) => {
+      if (index === i) {
+        job.positions.splice(j, 1);
+      }
+    });
   }
 }

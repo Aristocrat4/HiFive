@@ -2,19 +2,24 @@
   class="container flex flex-col gap-5 justify-center items-center my-0 mx-auto"
 >
   <div>
-    <form class="flex flex-col w-[300px]">
+    <form [formGroup]="positionForm" class="flex flex-col w-[300px]">
       <mat-label class="mb-3 text-xl font-bold">Position Details</mat-label>
       <mat-form-field>
         <mat-label>Enter Position Name</mat-label>
-        <input matInput />
+        <input matInput formControlName="positionName" />
       </mat-form-field>
       <mat-form-field>
         <mat-label>Enter Position Description</mat-label>
-        <textarea matInput></textarea>
+        <textarea matInput formControlName="positionDescription"></textarea>
       </mat-form-field>
+      <mat-label>Select Position Level</mat-label>
+      <app-position-level-selector
+        class="mb-4"
+        formControlName="positionLevel"
+      ></app-position-level-selector>
       <mat-form-field>
         <mat-label>Choose start date</mat-label>
-        <input matInput [matDatepicker]="picker" />
+        <input matInput [matDatepicker]="picker" formControlName="startDate" />
         <mat-datepicker-toggle
           matIconSuffix
           [for]="picker"
@@ -23,7 +28,7 @@
       </mat-form-field>
       <mat-form-field>
         <mat-label>Choose end date</mat-label>
-        <input matInput [matDatepicker]="picker1" />
+        <input matInput [matDatepicker]="picker1" formControlName="endDate" />
         <mat-datepicker-toggle
           matIconSuffix
           [for]="picker1"

@@ -5,8 +5,15 @@
     Add a Job
   </button>
   <ng-container *ngIf="companies.length; else empty">
-    <div *ngFor="let company of companies">
+    <div *ngFor="let company of companies; let i = index">
       <mat-card class="example-card px-4 pb-4 w-[500px]" appearance="outlined">
+        <button
+          mat-raised-button
+          class="remove-job mt-4"
+          (click)="onRemoveJob(i)"
+        >
+          Remove Job
+        </button>
         <mat-card-header>
           <mat-card-title>{{ company.companyName }}</mat-card-title>
         </mat-card-header>
@@ -17,13 +24,13 @@
         <button
           mat-raised-button
           class="addjob mt-4 w-[70%] mx-auto"
-          (click)="onAddPosition()"
+          (click)="onAddPosition(i)"
         >
           Add a Position
         </button>
         <mat-card-footer class="example-card-footer mt-5">
           <h2>Positions</h2>
-          <div *ngFor="let position of company.positions">
+          <div *ngFor="let position of company.positions; let j = index">
             <mat-card class="position-card bg-red-200">
               <mat-card-header>
                 <mat-card-title>{{ position.positionName }}</mat-card-title>
@@ -31,9 +38,16 @@
               <mat-card-content>
                 <p>Level: {{ position.positionLevel }}</p>
                 <p>Description: {{ position.positionDescription }}</p>
-                <p>Start Date: {{ position.startDate }}</p>
-                <p>End Date: {{ position.endDate }}</p>
+                <p>Start Date: {{ position.startDate | date }}</p>
+                <p>End Date: {{ position.endDate | date }}</p>
               </mat-card-content>
+              <button
+                mat-raised-button
+                class="remove-job m-4"
+                (click)="onRemovePosition(i, j)"
+              >
+                Remove Position
+              </button>
             </mat-card>
           </div>
         </mat-card-footer>

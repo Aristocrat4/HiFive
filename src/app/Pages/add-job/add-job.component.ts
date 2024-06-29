@@ -32,7 +32,9 @@ export class AddJobComponent {
   onSave() {
     this.jobService.addJob(this.jobForm.value);
     this.route.navigate([``]);
-    console.log(this.jobForm.value);
   }
-  onCancel() {}
+  onCancel() {
+    this.route.navigate([``]);
+    this.jobService.jobForm.reset();
+  }
 }
