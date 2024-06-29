@@ -1,0 +1,19 @@
+button.example-custom-date-class {
+  background: orange;
+  border-radius: 100%;
+}
+.demo-inline-calendar-card {
+  width: 500px;
+}
+::ng-deep.mat-calendar-body-cell-container > button.sunday-class {
+  background-color: rgb(255, 31, 31) !important;
+}
+::ng-deep.mat-calendar-body-cell-container > button.saturday-class {
+  background-color: rgba(255, 31, 31) !important;
+}
+::ng-deep.mat-calendar-body-cell-container > button.special-date-class {
+  background-color: rgba(255, 224, 113, 0.703) !important;
+}
+::ng-deep.mat-calendar-header {
+  display: none;
+}
