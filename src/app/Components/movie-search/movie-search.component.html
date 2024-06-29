@@ -1,0 +1,8 @@
+<mat-form-field>
+  <input matInput [(ngModel)]="searchTerm" placeholder="Enter movie title" />
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="searchMovies()">
+  Search
+</button>
+
+<app-movie-list [movies]="movies"></app-movie-list>

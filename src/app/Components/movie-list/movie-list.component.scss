@@ -1,0 +1,13 @@
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+mat-card {
+  max-width: 200px;
+}
+
+mat-card-content {
+  text-align: center;
+}

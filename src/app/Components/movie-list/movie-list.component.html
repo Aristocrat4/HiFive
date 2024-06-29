@@ -1,0 +1,12 @@
+<div class="movie-grid">
+  <ng-container *ngIf="movies.length; else empty">
+    <mat-card *ngFor="let movie of movies">
+      <img mat-card-image [src]="movie.image.url" alt="{{ movie.title }}" />
+      <mat-card-content>
+        <h2>{{ movie.title }}</h2>
+        <p>Year: {{ movie.year }}</p>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+  <ng-template #empty>No Movies Loaded</ng-template>
+</div>
