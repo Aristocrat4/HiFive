@@ -1,0 +1,7 @@
+<h2>Search Results</h2>
+<p>Search term: {{ value1 }}</p>
+<ul>
+  @for (item of matchResults; track item.value) {
+  <li>{{ item.value }}: {{ item.percentage.toFixed(2) }}% match</li>
+  }
+</ul>
